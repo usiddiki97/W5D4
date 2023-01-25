@@ -14,14 +14,12 @@ class Visit < ApplicationRecord
     belongs_to :visitor,
         foreign_key: :user_id,
         primary_key: :id,
-        class_name: :User
+        class_name: 'User'
 
-    belongs_to :visited_shortened_url,
+    belongs_to :visited_url,
         foreign_key: :shortened_url_id,
         primary_key: :id,
-        class_name: :ShortenedUrl
-
-
+        class_name: 'ShortenedUrl'
 
     def self.record_visit!(user, shortened_url)
         Visit.create!(
@@ -30,5 +28,4 @@ class Visit < ApplicationRecord
         )
     end
 
-    
 end
